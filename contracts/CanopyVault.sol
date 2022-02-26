@@ -8,14 +8,14 @@ contract CanopyVault {
 
     address public owner;
 
-    event Deposit(address from, uint256 amount);
+    event Deposit(address from, uint256 amount, IERC20 token);
 
     constructor() {
         owner = msg.sender;
     }
 
     function bridgeToken(uint256 amount, IERC20 token) external {
-        emit Deposit(msg.sender, amount);
+        emit Deposit(msg.sender, amount, token);
     }
 
 }
