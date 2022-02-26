@@ -6,7 +6,7 @@ async function main() {
     console.log("Account balance:", (await deployer.getBalance()).toString());
   
     const Token = await ethers.getContractFactory("sNCT");
-    const token = await Token.deploy();
+    const token = await Token.deploy("Synthetic NCT","sNCT");
   
     console.log("Token address:", token.address);
   }
