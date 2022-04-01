@@ -27,13 +27,13 @@ describe("sNCT contract", function () {
         });
 
         it("Should mint sNCT to the correct address and amount", async function () {
-            await deployedSNCT.mint(addrs[1].address, 100);
+            await deployedSNCT.mintWithEvent(addrs[1].address, 100, BigInt("0xbda1ccc0eb18882ff313738cdf341f45f71b953b0a7a47bda55045b4e17c185d"));
             expect(await deployedSNCT.balanceOf(addrs[1].address)).to.equal(100);
         });
 
         it("Should increment the total supply correctly after mint", async function () {
-            await deployedSNCT.mint(addrs[1].address, 4000);
-            await deployedSNCT.mint(addrs[2].address, 4000);
+            await deployedSNCT.mintWithEvent(addrs[1].address, 4000, BigInt("0xbda1ccc0eb18882ff313738cdf341f45f71b953b0a7a47bda55045b4e17c185d"));
+            await deployedSNCT.mintWithEvent(addrs[2].address, 4000, BigInt("0xbda1ccc0eb18882ff313738cdf341f45f71b953b0a7a47bda55045b4e17c185d"));
             expect(await deployedSNCT.totalSupply()).to.equal(8000);
         });
 
